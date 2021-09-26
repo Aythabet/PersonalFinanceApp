@@ -1,0 +1,58 @@
+<div class="jumbotron">
+    <div class="container">
+        <h1>Personal Finances</h1>
+
+        <p> <strong>Current Balance:   </strong><%= @totalBalance.round(1) %> TND             </p> 
+        <p> <strong>Money in da bank:  </strong><%= @totalBalanceBank.round(1) %> TND
+        </p>
+        <p> <strong>Cash Money:        </strong><%= @totalBalanceCash.round(1) %> TND
+        </p>
+    </div>
+</div>
+
+<div class="container">
+
+    <table class="table">
+        <tr>
+            <th scope="col"></th>
+            <th scope="col">ID</th>
+            <th scope="col">Title</th>
+            <th scope="col">Value</th>
+            <th scope="col">Account</th>
+            <th scope="col">Date</th>
+            <th scope="col">
+            <td><%= link_to new_transaction_path do %>
+                <i class="fas fa-plus-square"></i>
+                <% end %></td>
+            </th>
+        </tr>
+
+        <% @transactions.each do |transaction| %>
+        <tr>
+
+            <td><%= link_to transaction do %>
+                <i class="fas fa-eye"></i>
+                <% end %></td>
+            <td><%= transaction.id %></td>
+            <td><%= transaction.title %> </td>
+            <td><%= transaction.value %></td>
+            <td><%= transaction.account %></td>
+            <td><%= transaction.created_at %></td>
+            <td>
+
+            <td><%= link_to edit_transaction_path(transaction) do %>
+                <i class="fas fa-edit"></i>
+                <% end %></td>
+
+            <td><%= link_to transaction_path(transaction),
+                            method: :delete,
+                            data: { confirm: "Are you sure?" } do %>
+                <i class="fas fa-trash-alt"></i>
+                <% end %></td>
+            </td>
+
+        </tr>
+        <% end %>
+
+    </table>
+</div>

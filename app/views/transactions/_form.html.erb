@@ -1,0 +1,43 @@
+    <%= form_with model: @transaction do |form| %>
+        <div class="card">
+            <div class="card-body">
+                <div class="mb-3">
+                    <%= form.label :title, { class: "form-label" } %><br>
+                    <%= form.text_field :title, { class: "form-control", placeholder: "Title of the transaction" } %>
+                    <% @transaction.errors.full_messages_for(:title).each do |message| %>
+                    <div><%= message %></div>
+                    <% end %>
+                </div>
+
+                <div class="mb-3">
+                    <%= form.label :value, { class: "form-label" } %><br>
+                    <%= form.text_field :value, { class: "form-control", placeholder: "Value of the transaction" } %>
+                    <% @transaction.errors.full_messages_for(:value).each do |message| %>
+                    <div><%= message %></div>
+                    <% end %>
+                </div>
+
+                <div class="mb-3">
+                    <%= form.label :account, { class: "form-label" } %><br>
+                    <%= form.select :account, [["Select an account", nil], "Bank", "Cash"], {}, class: "form-select form-select-sm" %>
+                    <% @transaction.errors.full_messages_for(:account).each do |message| %>
+                    <div><%= message %></div>
+                    <% end %>
+                </div>
+
+
+
+                <div class="mb-3">
+                    <%= form.label :notes, { class: "form-label" } %><br>
+                    <%= form.text_area :notes, { class: "form-control", placeholder: "Notes related to this transaction" } %>
+                    <% @transaction.errors.full_messages_for(:notes).each do |message| %>
+                    <div><%= message %></div>
+                    <% end %>
+                </div>
+
+                <div class="mb-3">
+                    <%= form.submit class: "btn btn-primary" %>
+                </div>
+            </div>
+        </div>
+    <% end %>
