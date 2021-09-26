@@ -10,16 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_09_26_084301) do
-
-  create_table "internal_transactions", force: :cascade do |t|
-    t.float "value"
-    t.string "notes"
-    t.integer "transaction_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["transaction_id"], name: "index_internal_transactions_on_transaction_id"
-  end
+ActiveRecord::Schema.define(version: 2021_09_26_113331) do
 
   create_table "transactions", force: :cascade do |t|
     t.string "title"
@@ -31,5 +22,4 @@ ActiveRecord::Schema.define(version: 2021_09_26_084301) do
     t.index ["notes"], name: "index_transactions_on_notes"
   end
 
-  add_foreign_key "internal_transactions", "transactions"
 end
