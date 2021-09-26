@@ -4,6 +4,7 @@ class AccountsController
   end
 
   def show
-    @account = Account.find_by(title)
+    @transaction = Transaction.find(params[:id])
+    @account = Account.find_by(id: @transaction.account_id)
   end
 end
