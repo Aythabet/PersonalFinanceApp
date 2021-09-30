@@ -48,7 +48,7 @@ class TransactionsController < ApplicationController
   private
 
   def transaction_params
-    params.require(:transaction).permit(:title, :value, :notes, :account_id)
+    params.require(:transaction).permit(:title, :value, :notes, :account)
   end
 
   def total_balance
