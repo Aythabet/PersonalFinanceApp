@@ -1,5 +1,5 @@
 class Transaction < ApplicationRecord
-  belongs_to :transaction
+  belongs_to :account
 
   validates :title, presence: true
   validates :account, presence: true
