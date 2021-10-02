@@ -18,16 +18,6 @@
                 </div>
 
                 <div class="mb-3">
-                    <%= form.label :account, { class: "form-label" } %><br>
-                    <%= form.select :account, [["Select an account", nil], "Bank", "Cash"], {}, class: "form-select form-select-sm" %>
-                    <% @transaction.errors.full_messages_for(:account).each do |message| %>
-                    <div><%= message %></div>
-                    <% end %>
-                </div>
-
-
-
-                <div class="mb-3">
                     <%= form.label :notes, { class: "form-label" } %><br>
                     <%= form.text_area :notes, { class: "form-control", placeholder: "Notes related to this transaction" } %>
                     <% @transaction.errors.full_messages_for(:notes).each do |message| %>

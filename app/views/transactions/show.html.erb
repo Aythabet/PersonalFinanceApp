@@ -1,9 +1,10 @@
 <div class="container">
     <h1><%= @transaction.title %></h1>
     <p><strong>Transaction ID: </strong><%= @transaction.value %> TND</p>
+    <p><strong>Account: </strong><%= @transaction.ledger.title %></p>
     <p><strong>Date of the transaction: </strong><%= @transaction.created_at %> TND</p>
     <p><strong>Value of the transaction: </strong><%= @transaction.value %> TND</p>
-    <p><strong>Account: </strong><%= @transaction.account %></p>
     <p><strong>Notes: </strong><%= @transaction.notes %></p>
+
 
 </div> 

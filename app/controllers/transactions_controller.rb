@@ -1,9 +1,7 @@
 class TransactionsController < ApplicationController
   def index
     @transactions = Transaction.all
-    total_balance
-    total_balance_bank
-    total_balance_cash
+    @ledgers = Ledger.all
   end
 
   def new
@@ -48,31 +46,6 @@ class TransactionsController < ApplicationController
   private
 
   def transaction_params
-    params.require(:transaction).permit(:title, :value, :notes, :account)
-  end
-
-  def total_balance
-    @totalBalance = 0
-    @transactions.each do |transaction|
-      @totalBalance += transaction.value
-    end
-  end
-
-  def total_balance_bank
-    @totalBalanceBank = 0
-    @transactions.each do |transaction|
-      if transaction.account == "Bank"
-        @totalBalanceBank += transaction.value
-      end
-    end
-  end
-
-  def total_balance_cash
-    @totalBalanceCash = 0
-    @transactions.each do |transaction|
-      if transaction.account == "Cash"
-        @totalBalanceCash += transaction.value
-      end
-    end
+    params.require(:transaction).permit(:title, :value, :notes, :ledger)
   end
 end

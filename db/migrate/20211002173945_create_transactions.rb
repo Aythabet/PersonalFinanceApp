@@ -3,6 +3,7 @@ class CreateTransactions < ActiveRecord::Migration[6.1]
     create_table :transactions do |t|
       t.string :title
       t.float :value
+      t.string :notes
 
       t.timestamps
     end

@@ -1,0 +1,13 @@
+<table class="table">
+    <% @ledgers.each do |ledger| %>
+        <tr>
+            <td><%= ledger.id %></td>
+            <td><%= ledger.title %></td>
+            <td>
+                <% ledger.transactions.each do |transaction| %>
+                    <%= transaction.title %>
+                <% end %>
+            </td>            
+        </tr>
+    <% end %>
+</table>
