@@ -12,7 +12,7 @@ class TransactionsController < ApplicationController
     @transaction = Transaction.new(transaction_params)
 
     if @transaction.save
-      redirect_to @transaction
+      redirect_to root_path
     else
       render :new
     end
@@ -46,6 +46,6 @@ class TransactionsController < ApplicationController
   private
 
   def transaction_params
-    params.require(:transaction).permit(:title, :value, :notes, :ledger)
+    params.require(:transaction).permit(:title, :value, :notes, :ledger_id)
   end
 end

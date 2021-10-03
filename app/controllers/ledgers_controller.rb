@@ -1,6 +1,7 @@
 class LedgersController < ApplicationController
   def index
     @ledgers = Ledger.all
+    ledger_balance
   end
 
   def new
@@ -43,6 +44,14 @@ class LedgersController < ApplicationController
   end
 
   private
+
+  def ledger_balance
+    total = 0
+    @ledgers.each do |ledger|
+      p ledger.transactions.sum(:value)
+      total = ledger.transactions.sum(:value)
+    end
+  end
 
   def ledger_params
     params.require(:ledger).permit(:title, :balance)

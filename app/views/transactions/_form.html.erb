@@ -26,6 +26,12 @@
                 </div>
 
                 <div class="mb-3">
+                    <%= form.label :ledger_id, { class: "form-label" } %><br>
+                    <%= form.collection_select :ledger_id, Ledger.all, :id, :title %>
+                    
+                </div>
+
+                <div class="mb-3">
                     <%= form.submit class: "btn btn-primary" %>
                 </div>
             </div>
