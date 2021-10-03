@@ -48,7 +48,10 @@ class TransactionsController < ApplicationController
 
   def ledger_balance
     @ledgers.each do |ledger|
-      ledger.balance = ledger.transactions.sum(:value)
+      if ledger.balance == 0
+        ledger.balance = ledger.transactions.sum(:value)
+        ledger.save
+      end
     end
   end
 

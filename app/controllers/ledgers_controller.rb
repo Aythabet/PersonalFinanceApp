@@ -11,7 +11,7 @@ class LedgersController < ApplicationController
     @ledger = Ledger.new(ledger_params)
 
     if @ledger.save
-      redirect_to @ledger
+      redirect_to ledgers_path
     else
       render :new
     end
@@ -39,7 +39,7 @@ class LedgersController < ApplicationController
     @ledger = Ledger.find(params[:id])
     @ledger.destroy
 
-    redirect_to root_path
+    redirect_to ledgers_path
   end
 
   private

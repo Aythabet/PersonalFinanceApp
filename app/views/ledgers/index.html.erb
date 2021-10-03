@@ -1,13 +1,39 @@
+<div class="jumbotron">
+<div class="container">
+    <div class="container">
+        <h1>Ledgers Management</h1>
+
+
+
+    </div>
 <table class="table">
+        <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Title</th>
+            <th scope="col">Balance</th>
+            <th scope="col">
+            <%= link_to new_ledger_path do %>
+                <i class="fas fa-plus-square"></i>
+                <% end %>
+            </th>
+        </tr>
     <% @ledgers.each do |ledger| %>
         <tr>
             <td><%= ledger.id %></td>
             <td><%= ledger.title %></td>
-            <td>
-                <% ledger.transactions.each do |transaction| %>
-                    <%= transaction.title %>
+            <td><%= ledger.balance %></td>
+
+            <td><%= link_to edit_ledger_path(ledger) do %>
+                <i class="fas fa-edit"></i>
+                <% end %>
+                <%= link_to ledger_path(ledger),
+                            method: :delete,
+                            data: { confirm: "Are you sure?" } do %>
+                <i class="fas fa-trash-alt"></i>
                 <% end %>
             </td>            
         </tr>
     <% end %>
 </table>
+</div>
+</div>

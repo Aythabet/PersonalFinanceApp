@@ -1,7 +1,7 @@
 <div class="jumbotron">
     <div class="container">
         <h1>Personal Finances</h1>
-        <p><strong>Current Balance: </strong><%= @transactions.sum(:value) %> TND</p>
+        <p><strong>Current Balance: </strong><%= @ledgers.sum(:balance) %> TND</p>
         <% @ledgers.each do |ledger| %>
             <p><strong><%= ledger.title %> Balance: </strong><%= ledger.balance %>TND</p>
         <% end %>

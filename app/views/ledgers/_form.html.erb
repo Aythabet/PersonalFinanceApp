@@ -1,0 +1,17 @@
+    <%= form_with model: @ledger do |form| %>
+        <div class="card">
+            <div class="card-body">
+                <div class="mb-3">
+                    <%= form.label :title, { class: "form-label" } %><br>
+                    <%= form.text_field :title, { class: "form-control", placeholder: "Name the ledger" } %>
+                    <% @ledger.errors.full_messages_for(:title).each do |message| %>
+                    <div><%= message %></div>
+                    <% end %>
+                </div>
+
+                <div class="mb-3 mt-3">
+                    <%= form.submit class: "btn btn-primary" %>
+                </div>
+            </div>
+        </div>
+    <% end %>
