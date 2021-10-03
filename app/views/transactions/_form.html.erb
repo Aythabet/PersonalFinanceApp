@@ -25,13 +25,13 @@
                     <% end %>
                 </div>
 
-                <div class="mb-3">
+                <div class="mb-1">
                     <%= form.label :ledger_id, { class: "form-label" } %><br>
-                    <%= form.collection_select :ledger_id, Ledger.all, :id, :title %>
+                    <%= form.collection_select :ledger_id, Ledger.all, :id, :title, {}, { class: "form-select" } %>
                     
                 </div>
 
-                <div class="mb-3">
+                <div class="mb-3 mt-3">
                     <%= form.submit class: "btn btn-primary" %>
                 </div>
             </div>
